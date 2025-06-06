@@ -1,0 +1,152 @@
+**📄 Progetto PHP & MySQL - API RESTful Orizon (Start2Impact)**
+
+---
+
+**🎯 Obiettivo**
+Sviluppare un'applicazione web utilizzando PHP per gestire una serie di API RESTful in grado di inserire, modificare, eliminare e filtrare **paesi** e **viaggi**. I dati devono essere salvati in un database **MySQL**, gestito tramite **phpMyAdmin** su **MAMP**.
+
+---
+
+**🌍 Azienda ipotetica: Orizon**
+
+* **Nome**: Orizon
+* **Mission**: Progettare viaggi indimenticabili che rispettino l'ambiente e valorizzino le comunità locali.
+* **Vision**: Aiutare le persone a viaggiare in modo più consapevole, sostenibile e rigenerativo.
+* **Descrizione**: Agenzia di viaggi alternativa fondata da una coppia con 20 anni di esperienza. Organizza viaggi etici e su misura in Asia, America, per singoli, coppie e famiglie.
+
+---
+
+**🧱 Requisiti tecnici**
+
+✅ Linguaggio: PHP
+✅ Database: MySQL
+✅ Tool: MAMP con phpMyAdmin
+✅ Output: API RESTful in formato JSON
+✅ Standard REST: naming delle rotte, metodi HTTP (GET, POST, PUT, DELETE), status code (200, 201, 204, 400, 404, 500)
+
+---
+
+**📂 Struttura del progetto (su Replit o /htdocs in MAMP)**
+
+```
+/orizon-api
+├── index.php
+├── db.php
+├── migrations.sql
+└── routes
+    ├── countries.php
+    └── travels.php
+```
+
+---
+
+**🗃️ migrations.sql** (per ricreare il DB in phpMyAdmin)
+
+```sql
+CREATE DATABASE IF NOT EXISTS orizon;
+USE orizon;
+
+CREATE TABLE countries (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL UNIQUE
+);
+
+CREATE TABLE travels (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  country_id INT NOT NULL,
+  seats_available INT NOT NULL,
+  FOREIGN KEY (country_id) REFERENCES countries(id) ON DELETE CASCADE
+);
+```
+
+---
+
+**🔌 db.php** (connessione al DB)
+
+```php
+<?php
+$host = 'localhost';
+$dbname = 'orizon';
+$username = 'root';
+$password = 'root'; // default in MAMP
+
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    http_response_code(500);
+    echo json_encode(['error' => 'Database connection failed: ' . $e->getMessage()]);
+    exit;
+}
+```
+
+---
+
+**🛣️ index.php**
+
+```php
+<?php
+header("Content-Type: application/json");
+
+$request = $_SERVER['REQUEST_URI'];
+
+if (str_starts_with($request, '/countries')) {
+    require __DIR__ . '/routes/countries.php';
+} elseif (str_starts_with($request, '/travels')) {
+    require __DIR__ . '/routes/travels.php';
+} else {
+    http_response_code(404);
+    echo json_encode(["error" => "Endpoint not found"]);
+}
+```
+
+---
+
+**🌍 routes/countries.php**
+
+Gestione CRUD dei paesi (GET, POST, PUT, DELETE).
+
+---
+
+**✈️ routes/travels.php**
+
+Gestione viaggi, incluso filtro per paese e posti disponibili.
+
+---
+
+**🔍 Esempi di chiamate API REST**
+
+```
+GET    /travels                          → tutti i viaggi
+GET    /travels?country_id=1            → viaggi per paese
+GET    /travels?seats_available=5       → viaggi per posti disponibili
+POST   /countries                       → crea un paese
+PUT    /countries/1                     → modifica un paese
+DELETE /countries/1                     → elimina un paese
+POST   /travels                         → crea un viaggio
+PUT    /travels/1                       → modifica un viaggio
+DELETE /travels/1                       → elimina un viaggio
+```
+
+---
+
+**🧪 Test & Avvio (con MAMP)**
+
+1. Avvia **MAMP** e **Start Servers**
+2. Copia la cartella in `/Applications/MAMP/htdocs/orizon-api`
+3. Accedi a `http://localhost:8888/orizon-api/index.php`
+4. Usa **Postman** o `curl` per testare le API
+5. Importa `migrations.sql` in phpMyAdmin
+
+---
+
+**✅ Checklist finale**
+
+* [x] Creazione database e tabelle (via migrations.sql)
+* [x] API RESTful funzionanti e organizzate in file separati
+* [x] Test con Postman o Curl
+* [x] Codice conforme agli standard REST
+
+---
+
+Se vuoi posso anche incollarti i **contenuti completi dei file PHP** (`countries.php`, `travels.php`) o prepararti un pacchetto `.zip` se lavorerai in locale!
