@@ -21,3 +21,23 @@ PHP (PDO)	Backend e gestione sicura del database
 MySQL (via MAMP)	Database relazionale
 Fetch API	Comunicazione asincrona tra client e server
 dotenv (vlucas/phpdotenv)	Gestione sicura delle variabili d’ambiente
+
+
+# ⚙️ Setup e Avvio del Progetto
+# Prerequisiti
+- MAMP (o XAMPP simile)
+- Composer
+- Git
+
+# Installazione
+Clona la repository:
+- git clone https://github.com/Biagem01/Orizon.git
+Sposta il progetto nella cartella MAMP:
+- mv Orizon /Applications/MAMP/htdocs/
+
+# Installa le dipendenze:
+
+- composer install
+
+- Avvia il server MAMP e accedi da http://localhost:8888/
+
