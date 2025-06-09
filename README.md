@@ -14,6 +14,8 @@ Validazione server-side: I dati ricevuti vengono sempre validati prima di essere
 
 Organizzazione modulare del backend: Codice backend suddiviso in file PHP distinti per responsabilità (paesi, viaggi, connessione, ecc.).
 
+# Tecnologie Utilizzate
+
 | Livello       | Stack                                     |
 | ------------- | ----------------------------------------- |
 | **Frontend**  | HTML5, CSS, Vanilla JavaScript            |
