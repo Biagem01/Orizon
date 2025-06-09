@@ -14,13 +14,14 @@ Validazione server-side: I dati ricevuti vengono sempre validati prima di essere
 
 Organizzazione modulare del backend: Codice backend suddiviso in file PHP distinti per responsabilità (paesi, viaggi, connessione, ecc.).
 
-# 🧠 Tecnologie Utilizzate
-Tecnologia	Ruolo
-HTML/CSS/JS	Struttura e interattività del frontend
-PHP (PDO)	Backend e gestione sicura del database
-MySQL (via MAMP)	Database relazionale
-Fetch API	Comunicazione asincrona tra client e server
-dotenv (vlucas/phpdotenv)	Gestione sicura delle variabili d’ambiente
+| Livello       | Stack                                     |
+| ------------- | ----------------------------------------- |
+| **Frontend**  | HTML5, CSS, Vanilla JavaScript            |
+| **Backend**   | PHP (senza framework)                     |
+| **Database**  | MySQL                                     |      |
+| **Hosting**   | [AwardSpace](https://www.awardspace.com/) |
+| **Local Dev** | MAMP (Apache + MySQL + PHP)               |
+
 
 
 # ⚙️ Setup e Avvio del Progetto
