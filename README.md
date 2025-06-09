@@ -44,3 +44,18 @@ Sposta il progetto nella cartella MAMP:
 
 - Avvia il server MAMP e accedi da http://localhost:8888/
 
+### 🧠 Descrizione
+
+**Orizon Travel Agency** è un'applicazione web progettata per aiutare agenzie di viaggio a gestire facilmente **paesi** e **viaggi turistici**, con funzionalità CRUD (Create, Read, Update, Delete) sia per paesi che per viaggi.
+
+Il progetto è composto da:
+- Un **frontend dinamico** in HTML + JavaScript.
+- Un **backend in PHP** che gestisce API REST personalizzate.
+- Un **database MySQL** per la memorizzazione dei dati.
+
+> Il progetto è stato **pubblicato online** su un servizio di **hosting gratuito**:  
+> 🌐 [http://orizon-travel.atwebpages.com/](http://orizon-travel.atwebpages.com/)
+
+Il progetto è stato sviluppato da Biagio, studente di informatica, con l'obiettivo di mettere in pratica concetti di sviluppo full stack.
+
+
