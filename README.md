@@ -37,6 +37,7 @@ Clona la repository:
 - git clone https://github.com/Biagem01/Orizon.git
 Sposta il progetto nella cartella MAMP:
 - mv Orizon /Applications/MAMP/htdocs/
+- imposta la Document Root di Mamp in : Applications › MAMP › htdocs › Orizon-main › public
 
 # Installa le dipendenze:
 
